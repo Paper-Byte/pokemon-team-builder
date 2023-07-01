@@ -1,86 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Pokemon Team Builder</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="./src/img/pokeball-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="icon"
+      href="./src/img/pokeball-icon.png"
+      type="image/x-icon"
+    />
     <script defer src="./src/APICalls.js"></script>
   </head>
   <body>
-    <div id="search-filter">
+    <div id="root">
+      <div id="search-filter">
         <div class="icon bug">
-            <img src="/src/img/icons/bug.svg"/>
-            <p>Bug</p>
+          <img src="/src/img/icons/bug.svg" />
+          <p>Bug</p>
         </div>
+
         <div class="icon dark">
-            <img src="/src/img/icons/dark.svg"/>
-            <p>Dark</p>
+          <img src="/src/img/icons/dark.svg" />
+          <p>Dark</p>
         </div>
+
         <div class="icon dragon">
-            <img src="/src/img/icons/dragon.svg"/>
-            <p>Dragon</p>
+          <img src="/src/img/icons/dragon.svg" />
+          <p>Dragon</p>
         </div>
+
         <div class="icon electric">
-            <img src="/src/img/icons/electric.svg"/>
-            <p>Electric</p>
+          <img src="/src/img/icons/electric.svg" />
+          <p>Electric</p>
         </div>
         <div class="icon fairy">
-            <img src="/src/img/icons/fairy.svg"/>
-            <p>Fairy</p>
+          <img src="/src/img/icons/fairy.svg" />
+          <p>Fairy</p>
         </div>
         <div class="icon fighting">
-            <img src="/src/img/icons/fighting.svg"/>
-            <p>Fighting</p>
+          <img src="/src/img/icons/fighting.svg" />
+          <p>Fighting</p>
         </div>
         <div class="icon fire">
-            <img src="/src/img/icons/fire.svg"/>
-            <p>Fire</p>
+          <img src="/src/img/icons/fire.svg" />
+          <p>Fire</p>
         </div>
         <div class="icon flying">
-            <img src="/src/img/icons/flying.svg"/>
-            <p>Flying</p>
+          <img src="/src/img/icons/flying.svg" />
+          <p>Flying</p>
         </div>
         <div class="icon ghost">
-            <img src="/src/img/icons/ghost.svg"/>
-            <p>Ghost</p>
+          <img src="/src/img/icons/ghost.svg" />
+          <p>Ghost</p>
         </div>
         <div class="icon grass">
-            <img src="/src/img/icons/grass.svg"/>
-            <p>Grass</p>
+          <img src="/src/img/icons/grass.svg" />
+          <p>Grass</p>
         </div>
         <div class="icon ground">
-            <img src="/src/img/icons/ground.svg"/>
-            <p>Ground</p>
+          <img src="/src/img/icons/ground.svg" />
+          <p>Ground</p>
         </div>
         <div class="icon ice">
-            <img src="/src/img/icons/ice.svg"/>
-            <p>Ice</p>
+          <img src="/src/img/icons/ice.svg" />
+          <p>Ice</p>
         </div>
         <div class="icon normal">
-            <img src="/src/img/icons/normal.svg"/>
-            <p>Normal</p>
+          <img src="/src/img/icons/normal.svg" />
+          <p>Normal</p>
         </div>
         <div class="icon poison">
-            <img src="/src/img/icons/poison.svg"/>
-            <p>Poison</p>
+          <img src="/src/img/icons/poison.svg" />
+          <p>Poison</p>
         </div>
         <div class="icon psychic">
-            <img src="/src/img/icons/psychic.svg"/>
-            <p>Psychic</p>
+          <img src="/src/img/icons/psychic.svg" />
+          <p>Psychic</p>
         </div>
         <div class="icon rock">
-            <img src="/src/img/icons/rock.svg"/>
-            <p>Rock</p>
+          <img src="/src/img/icons/rock.svg" />
+          <p>Rock</p>
         </div>
         <div class="icon steel">
-            <img src="/src/img/icons/steel.svg"/>
-            <p>Steel</p>
+          <img src="/src/img/icons/steel.svg" />
+          <p>Steel</p>
         </div>
         <div class="icon water">
-            <img src="/src/img/icons/water.svg"/>
-            <p>Water</p>
+          <img src="/src/img/icons/water.svg" />
+          <p>Water</p>
         </div>
+      </div>
+
+      <div id="search-box">
+        <input type="text" id="search-input-text" />
+        <div class="pokemon-search">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <div class="list-text">
+            <span style="width: 100%">Dragonite</span>
+            <span>#149</span>
+          </div>
+        </div>
+        <div class="pokemon-search">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <div class="list-text">
+            <span style="width: 100%">Dragonite</span>
+            <span>#149</span>
+          </div>
+        </div>
+        <div class="pokemon-search">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <div class="list-text">
+            <span style="width: 100%">Dragonite</span>
+            <span>#149</span>
+          </div>
+        </div>
+        <div class="pokemon-search">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <div class="list-text">
+            <span style="width: 100%">Dragonite</span>
+            <span>#149</span>
+          </div>
+        </div>
+        <div class="pokemon-search">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <div class="list-text">
+            <span style="width: 100%">Dragonite</span>
+            <span>#149</span>
+          </div>
+        </div>
+                <div class="pokemon-search">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <div class="list-text">
+            <span style="width: 100%">Dragonite</span>
+            <span>#149</span>
+          </div>
+        </div>
+        <div class="pokemon-search">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <div class="list-text">
+            <span>Name</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg"></div>
+      <div id="content">
+        <div id="pokemon-preview">
+          <div class="pokemon-preview-card">
+            <div class="pokemon-icon">
+              <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+              />
+            </div>
+            <span>Dragonite</span>
+            <img
+              src="/src/img/icons/dragon.svg"
+              class="dragon icon"
+              style="border-radius: 100%"
+            />
+            <img
+              src="/src/img/icons/flying.svg"
+              class="flying icon"
+              style="border-radius: 100%"
+            />
+          </div>
+          <div class="pokemon-preview-card"></div>
+          <div class="pokemon-preview-card"></div>
+          <div class="pokemon-preview-card"></div>
+          <div class="pokemon-preview-card"></div>
+          <div class="pokemon-preview-card"></div>
+        </div>
+        <div id="pokemon-submit-container">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Fuga quo sapiente ex doloribus repudiandae labore quos.
+          Voluptates, asperiores. Suscipit pariatur quas sit possimus
+          cumque nulla nostrum eaque quibusdam consequuntur similique!
+        </div>
+      </div>
+      <div id="saved-pokemon-teams">
+        <div class="saved-team-card">
+          <span>Team Name</span>
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/149.png"
+          />
+        </div>
+      </div>
     </div>
   </body>
 </html>

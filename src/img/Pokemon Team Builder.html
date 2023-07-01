@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Pokemon Team Builder</title>
+    <link rel="stylesheet" href="./Pokemon Team Builder_files/style.css">
+    <link rel="icon" href="http://127.0.0.1:5500/src/img/pokeball-icon.png" type="image/x-icon">
+    <script defer="" src="./Pokemon Team Builder_files/APICalls.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div id="search-filter">
+        <div class="icon bug">
+          <img src="./Pokemon Team Builder_files/bug.svg">
+          <p>Bug</p>
+        </div>
+
+        <div class="icon dark">
+          <img src="./Pokemon Team Builder_files/dark.svg">
+          <p>Dark</p>
+        </div>
+
+        <div class="icon dragon">
+          <img src="./Pokemon Team Builder_files/dragon.svg">
+        </div>
+        <p>Dragon</p>
+        <div class="icon electric">
+          <img src="./Pokemon Team Builder_files/electric.svg">
+          <p>Electric</p>
+        </div>
+        <div class="icon fairy">
+          <img src="./Pokemon Team Builder_files/fairy.svg">
+          <p>Fairy</p>
+        </div>
+        <div class="icon fighting">
+          <img src="./Pokemon Team Builder_files/fighting.svg">
+          <p>Fighting</p>
+        </div>
+        <div class="icon fire">
+          <img src="./Pokemon Team Builder_files/fire.svg">
+          <p>Fire</p>
+        </div>
+        <div class="icon flying">
+          <img src="./Pokemon Team Builder_files/flying.svg">
+          <p>Flying</p>
+        </div>
+        <div class="icon ghost">
+          <img src="./Pokemon Team Builder_files/ghost.svg">
+          <p>Ghost</p>
+        </div>
+        <div class="icon grass">
+          <img src="./Pokemon Team Builder_files/grass.svg">
+          <p>Grass</p>
+        </div>
+        <div class="icon ground">
+          <img src="./Pokemon Team Builder_files/ground.svg">
+          <p>Ground</p>
+        </div>
+        <div class="icon ice">
+          <img src="./Pokemon Team Builder_files/ice.svg">
+          <p>Ice</p>
+        </div>
+        <div class="icon normal">
+          <img src="./Pokemon Team Builder_files/normal.svg">
+          <p>Normal</p>
+        </div>
+        <div class="icon poison">
+          <img src="./Pokemon Team Builder_files/poison.svg">
+          <p>Poison</p>
+        </div>
+        <div class="icon psychic">
+          <img src="./Pokemon Team Builder_files/psychic.svg">
+          <p>Psychic</p>
+        </div>
+        <div class="icon rock">
+          <img src="./Pokemon Team Builder_files/rock.svg">
+          <p>Rock</p>
+        </div>
+        <div class="icon steel">
+          <img src="./Pokemon Team Builder_files/steel.svg">
+          <p>Steel</p>
+        </div>
+        <div class="icon water">
+          <img src="./Pokemon Team Builder_files/water.svg">
+          <p>Water</p>
+        </div>
+      </div>
+
+      <div id="search-box">
+        <input type="text" id="search-input-text">
+      </div>
+      <div id="content"></div>
+    </div>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
