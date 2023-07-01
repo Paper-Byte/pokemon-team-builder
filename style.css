@@ -93,9 +93,7 @@ CSS for icon styling originally produced by duiker101
 GitHub: https://github.com/duiker101/pokemon-type-svg-icons
 */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-
-body,
-html {
+body {
   font-family: 'Lato', sans-serif;
 }
 
@@ -227,8 +225,8 @@ html {
 }
 
 #search-box {
-    overflow-y: scroll;
-    overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: brown;
   width: 180px;
   height: 100vh;
@@ -247,9 +245,13 @@ html {
   flex: 1;
 }
 .bg {
-  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcatwithmonocle.com%2Fwp-content%2Fuploads%2F2018%2F11%2Fpokemon-letsgo-pikachu-v2-3840x2160.jpg&f=1&nofb=1&ipt=b9b02f1dec099d50987545435e030045d492cbfe14e80d190fe214bc173e2202&ipo=images');
+  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.roomforzoom.com%2Fbackgrounds%2FPokemon-Go-Computer-generated-background-230.jpg&f=1&nofb=1&ipt=0bb7925dddb17b0b7a7a20917a3cf38f60303caa5b9c179d16ed26387b20b12f&ipo=images');
   position: absolute;
-  filter: blur(8px);
+  filter: blur(20px);
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  scale: 1.1;
 }
 
 #search-input-text {
@@ -291,6 +293,7 @@ html {
 
 #content {
   display: flex;
+  background: transparent;
   flex-direction: column;
 }
 
@@ -313,13 +316,15 @@ html {
 }
 
 .pokemon-preview-card {
+  display: flex;
+  flex-wrap: wrap;
   border-radius: 20px;
-  background-color: #0000007e;
+  background-color: #ffffff7e;
   height: 200px;
   width: 480px;
   margin: 2px;
   backdrop-filter: blur(10px);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 #pokemon-submit-container {
@@ -329,9 +334,21 @@ html {
 .pokemon-icon {
   margin-left: 15px;
   margin-top: 5px;
+  text-align: center;
+  font-size: larger;
 }
 
 .pokemon-icon img {
   width: 100px;
   height: 100px;
+}
+
+.pokemon-typing-icons {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.pokemon-typing-icons img {
+  margin-bottom: 10px;
 }
