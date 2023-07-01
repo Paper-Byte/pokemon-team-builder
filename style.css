@@ -219,6 +219,7 @@ body {
   height: 100vh;
   box-shadow: 0 0 20px #5fbd58;
   display: block;
+  font-size: small;
 }
 
 #search-filter::-webkit-scrollbar {
