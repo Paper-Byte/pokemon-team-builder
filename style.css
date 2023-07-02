@@ -358,3 +358,20 @@ body {
 .pokemon-icon p {
     margin-top: 15px;
 }
+
+.pokemon-card-defense-stats{
+    width: 120px;
+    text-align: left;
+    font-size: larger;
+}
+.pokemon-card-defense-stats p {
+    margin-bottom: 45px;
+}
+.pokemon-card-offense-stats{
+    width: 120px;
+    text-align: left;
+    font-size: larger;
+}
+.pokemon-card-offense-stats p {
+    margin-bottom: 45px;
+}
