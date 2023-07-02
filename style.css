@@ -317,7 +317,7 @@ body {
   background-color: #5695a3;
 }
 
-.pokemon-preview-card {
+.pokemon-preview-card{
   display: flex;
   flex-wrap: wrap;
   border-radius: 20px;
@@ -327,6 +327,7 @@ body {
   margin: 2px;
   backdrop-filter: blur(10px);
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  background-image: linear-gradient(to bottom right, #0c69c8, #a1bbec);
 }
 
 #pokemon-submit-container {
@@ -375,3 +376,21 @@ body {
 .pokemon-card-offense-stats p {
     margin-bottom: 45px;
 }
+.saved-team-card {
+    height: 60px;
+}
+.saved-team-card img {
+    height: 25px;
+    width: auto;
+}
+
+#saved-pokemon-teams {
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#saved-pokemon-teams ::-webkit-scrollbar {
+    display: none;
+}
+
