@@ -214,10 +214,10 @@ body {
 
 #search-filter {
   overflow-y: scroll;
-  background-color: #5fbd58;
+  background-color: #8ecae6;
   width: 70px;
   height: 100vh;
-  box-shadow: 0 0 20px #5fbd58;
+  box-shadow: 0 0 20px #8ecae6;
   display: block;
   font-size: small;
   border-radius: 20px;
@@ -230,7 +230,7 @@ body {
 #search-box {
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: brown;
+  background-color: #023047;
   width: 180px;
   height: 100vh;
   text-align: center;
@@ -249,7 +249,7 @@ body {
   flex: 1;
 }
 .bg {
-  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.roomforzoom.com%2Fbackgrounds%2FPokemon-Go-Computer-generated-background-230.jpg&f=1&nofb=1&ipt=0bb7925dddb17b0b7a7a20917a3cf38f60303caa5b9c179d16ed26387b20b12f&ipo=images');
+  background-image: url(./src/img/background.jpg);
   position: absolute;
   filter: blur(20px);
   width: 100vw;
@@ -264,6 +264,7 @@ body {
   margin-top: 5px;
   max-width: 164px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .pokemon-search {
@@ -278,6 +279,8 @@ body {
   height: 50px;
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
+  background-color: #219ebc;
+  border-radius: 20px;
 }
 .pokemon-search:hover {
   transform: translateY(-5px) scale(1.03);
@@ -316,7 +319,7 @@ body {
 
 #saved-pokemon-teams {
   width: 200px;
-  background-color: #5695a3;
+  background-color: #fb8500;
 }
 
 .pokemon-preview-card{
@@ -388,6 +391,8 @@ body {
   width: 100%;
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
+  border-radius: 20px;
+  background-color: #ffb703;
 }
 .saved-team-card img {
     height: 25px;
@@ -413,12 +418,14 @@ body {
     text-decoration: underline;
     outline: black;
     outline-style: double;
+    margin-bottom: 10px;
 }
 
 #submit-team-container {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 240px;
     font-size: larger;
+    color: #fb8500;
 }
 
 #submit-team-container input{
@@ -431,4 +438,16 @@ body {
     height: 30px;
     border-radius: 15px;
     width: 70px;
+}
+
+#search-input-text::-webkit-input-placeholder{
+    font-style: italic;
+}
+
+#search-input-text::-moz-placeholder{
+    font-style: italic;
+}
+
+#search-input-text::-ms-input-placeholder{
+    font-style: italic;
 }
