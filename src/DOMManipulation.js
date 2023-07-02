@@ -10,16 +10,20 @@
         </div>
 */
 
-const renderSearchPokemonCard = async (initial, search = '') => {
-  if (initial) {
-    const initialPokemonData = await fetchInitialPreviewPokemonData();
-    initialPokemonData.forEach((element) =>
-      createInitPokemonSearchCards(element)
-    );
-  }
+const renderInitialSearchPokemonCard = async () => {
+  const pokemonData = await fetchInitialPreviewPokemonData();
+  pokemonData.forEach((element) => createPokemonSearchCards(element));
+};
+
+const renderTypeSearchPokemonCard = async (type) => {
+  const pokemonData = await fetchPokemonTypeData(type);
+  const filteredPokemonData = pokemonData.filter((e) =>
+    pokemonRangeCheck(e.pokemon)
+  );
+  console.log(filteredPokemonData);
 };
 
 document.addEventListener(
   'DOMContentLoaded',
-  renderSearchPokemonCard(true)
+  renderInitialSearchPokemonCard()
 );

@@ -3,7 +3,13 @@ const pokemonIDHelper = (url) => {
   return pokemonID[6];
 };
 
-const createInitPokemonSearchCards = (element) => {
+const pokemonRangeCheck = (element) => {
+  if (pokemonIDHelper(element.url) <= 386) {
+    return element;
+  }
+};
+
+const createPokemonSearchCards = (element) => {
   const searchContainer = document.querySelector('#search-box');
   const newPokemonImage = document.createElement('img');
   const newPokemonMainDiv = document.createElement('div');
@@ -13,7 +19,6 @@ const createInitPokemonSearchCards = (element) => {
 
   newPokemonMainDiv.className = 'pokemon-search';
   newPokemonTextDiv.className = 'list-text';
-
   newPokemonImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${pokemonIDHelper(
     element.url
   )}.png`;
