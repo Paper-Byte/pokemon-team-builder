@@ -354,3 +354,7 @@ body {
 .pokemon-typing-icons img {
   margin-bottom: 10px;
 }
+
+.pokemon-icon p {
+    margin-top: 15px;
+}
