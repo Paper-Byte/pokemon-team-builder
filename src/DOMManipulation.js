@@ -9,6 +9,7 @@
           </div>
         </div>
 */
+const typeFilterDiv = document.querySelector('#search-filter');
 
 const renderInitialSearchPokemonCard = async () => {
   const pokemonData = await fetchInitialPreviewPokemonData();
@@ -18,9 +19,12 @@ const renderInitialSearchPokemonCard = async () => {
 const renderTypeSearchPokemonCard = async (type) => {
   const pokemonCardList = document.querySelector('#search-box');
   const pokemonData = await fetchPokemonTypeData(type);
-  const filteredPokemonData = pokemonData.filter((element) =>
-    pokemonRangeCheck(element.pokemon)
-  );
+  const filteredPokemonData = pokemonData.filter((element) => {
+    const elementPokemon = element.pokemon;
+    if (pokemonIDHelper(elementPokemon.url) <= 386) {
+      return element;
+    }
+  });
   pokemonCardList.innerHTML = `<input type="text" id="search-input-text" placeholder="Search..."/>`;
   filteredPokemonData.forEach((element) =>
     createPokemonSearchCards(element.pokemon)
@@ -31,3 +35,11 @@ document.addEventListener(
   'DOMContentLoaded',
   renderInitialSearchPokemonCard()
 );
+
+typeFilterDiv.addEventListener('click', (e) => {
+  const activeType = e.target.closest('.icon');
+  const activeTypeValue = activeType.querySelector('p');
+  renderTypeSearchPokemonCard(
+    activeTypeValue.textContent.toLowerCase()
+  );
+});
