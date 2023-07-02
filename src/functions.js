@@ -1,21 +1,32 @@
-const createSearchPokemonCard = async (initial = true) => {
+const pokemonIDHelper = (url) => {
+  const pokemonID = url.split('/');
+  return pokemonID[6];
+};
+
+const createInitPokemonSearchCards = (element) => {
   const searchContainer = document.querySelector('#search-box');
   const newPokemonImage = document.createElement('img');
   const newPokemonMainDiv = document.createElement('div');
-  newPokemonMainDiv.className = 'pokemon-search';
   const newPokemonTextDiv = document.createElement('div');
-  newPokemonTextDiv.className = 'list-text';
   const newPokemonNameSpan = document.createElement('span');
-  newPokemonNameSpan.style.width = '100%';
   const newPokemonIDSpan = document.createElement('span');
 
-  if (initial) {
-    const initialPokemonData = await fetchInitialPreviewPokemonData();
-  }
-};
+  newPokemonMainDiv.className = 'pokemon-search';
+  newPokemonTextDiv.className = 'list-text';
 
-const createPokemonSearchCards = (element) => {
-  const newPokeSearchCard = document.createElement('div');
-  newPokeSearchCard.className = 'pokemon-search';
-  newPokeSearchCard.innerHTML;
+  newPokemonImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${pokemonIDHelper(
+    element.url
+  )}.png`;
+
+  newPokemonNameSpan.textContent =
+    element.name.charAt(0).toUpperCase() + element.name.slice(1);
+  newPokemonNameSpan.style.width = '100%';
+
+  newPokemonIDSpan.textContent = `#${pokemonIDHelper(element.url)}`;
+
+  newPokemonTextDiv.appendChild(newPokemonNameSpan);
+  newPokemonTextDiv.appendChild(newPokemonIDSpan);
+  newPokemonMainDiv.appendChild(newPokemonImage);
+  newPokemonMainDiv.appendChild(newPokemonTextDiv);
+  searchContainer.appendChild(newPokemonMainDiv);
 };

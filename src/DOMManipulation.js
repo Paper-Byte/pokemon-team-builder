@@ -9,3 +9,17 @@
           </div>
         </div>
 */
+
+const renderSearchPokemonCard = async (initial, search = '') => {
+  if (initial) {
+    const initialPokemonData = await fetchInitialPreviewPokemonData();
+    initialPokemonData.forEach((element) =>
+      createInitPokemonSearchCards(element)
+    );
+  }
+};
+
+document.addEventListener(
+  'DOMContentLoaded',
+  renderSearchPokemonCard(true)
+);
