@@ -16,11 +16,15 @@ const renderInitialSearchPokemonCard = async () => {
 };
 
 const renderTypeSearchPokemonCard = async (type) => {
+  const pokemonCardList = document.querySelector('#search-box');
   const pokemonData = await fetchPokemonTypeData(type);
-  const filteredPokemonData = pokemonData.filter((e) =>
-    pokemonRangeCheck(e.pokemon)
+  const filteredPokemonData = pokemonData.filter((element) =>
+    pokemonRangeCheck(element.pokemon)
   );
-  console.log(filteredPokemonData);
+  pokemonCardList.innerHTML = `<input type="text" id="search-input-text" placeholder="Search..."/>`;
+  filteredPokemonData.forEach((element) =>
+    createPokemonSearchCards(element.pokemon)
+  );
 };
 
 document.addEventListener(
