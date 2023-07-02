@@ -3,12 +3,6 @@ const pokemonIDHelper = (url) => {
   return pokemonID[6];
 };
 
-const pokemonRangeCheck = (element) => {
-  if (pokemonIDHelper(element.url) <= 386) {
-    return element;
-  }
-};
-
 const createPokemonSearchCards = (element) => {
   const searchContainer = document.querySelector('#search-box');
   const newPokemonImage = document.createElement('img');

@@ -13,3 +13,11 @@ const fetchPokemonTypeData = async (type) => {
   const data = await response.json();
   return data.pokemon;
 };
+
+const fetchPokemonSpecificData = async (pokemon) => {
+  const response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${pokemon}/`
+  );
+  const { types, name, stats, id } = await response.json();
+  return { types, name, stats, id };
+};
