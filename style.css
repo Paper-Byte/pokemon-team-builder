@@ -220,6 +220,7 @@ body {
   box-shadow: 0 0 20px #5fbd58;
   display: block;
   font-size: small;
+  border-radius: 20px;
 }
 
 #search-filter::-webkit-scrollbar {
@@ -233,6 +234,7 @@ body {
   width: 180px;
   height: 100vh;
   text-align: center;
+  border-radius: 20px;
 }
 #search-box::-webkit-scrollbar {
   display: none;
@@ -396,6 +398,7 @@ body {
     text-align: center;
     overflow-x: hidden;
     overflow-y: scroll;
+    border-radius: 20px;
 }
 
 #saved-pokemon-teams ::-webkit-scrollbar {
@@ -406,3 +409,26 @@ body {
     transform: translateY(-5px) scale(1.03)
 }
 
+#saved-team-header {
+    text-decoration: underline;
+    outline: black;
+    outline-style: double;
+}
+
+#submit-team-container {
+    margin-top: 50px;
+    margin-left: 240px;
+    font-size: larger;
+}
+
+#submit-team-container input{
+    height: 30px;
+    border-radius: 15px;
+    width: 250px;
+}
+
+#submit-team-container button{
+    height: 30px;
+    border-radius: 15px;
+    width: 70px;
+}
