@@ -327,7 +327,8 @@ body {
   margin: 2px;
   backdrop-filter: blur(10px);
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-  background-image: linear-gradient(to bottom right, #0c69c8, #a1bbec);
+  background-image: linear-gradient(to bottom right, #0c69c899, #a1bbec99);
+  
 }
 
 #pokemon-submit-container {
@@ -378,6 +379,13 @@ body {
 }
 .saved-team-card {
     height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  width: 100%;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 .saved-team-card img {
     height: 25px;
@@ -392,5 +400,9 @@ body {
 
 #saved-pokemon-teams ::-webkit-scrollbar {
     display: none;
+}
+
+.saved-team-card:hover{
+    transform: translateY(-5px) scale(1.03)
 }
 
