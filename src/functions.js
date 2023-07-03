@@ -36,24 +36,36 @@ const editPokemonPreviewCards = async (counter, pokemon) => {
   const currentPreviewCard = document.querySelector(
     `#preview-card-${counter + 1}`
   );
-  const currentPreviewCardPokemonImg = document.querySelector(
-    `#preview-card-${counter + 1} , .pokemon-icon , img`
+  const currentPreviewCardImg = document.querySelector(
+    `#card-img-${counter + 1}`
   );
-  const currentPreviewCardPokemonName = document.querySelector(
-    `#preview-card-${counter + 1} , .pokemon-icon , p`
+  const currentPreviewCardName = document.querySelector(
+    `#card-name-${counter + 1}`
   );
-  const currentPreviewCardType1 = document.querySelector(
-    `#preview-card-${counter + 1} , .pokemon-typing-icons , .icon[0]`
+  const currentPreviewCardTypeOne = document.querySelector(
+    `#type-one-${counter + 1}`
   );
-  const currentPreviewCardType2 = document.querySelector(
-    `#preview-card-${counter + 1} , .pokemon-typing-icons , .icon[1]`
+  const currentPreviewCardTypeTwo = document.querySelector(
+    `#type-two-${counter + 1}`
   );
-  const currentPreviewCardHp = document.querySelector(
-    `#preview-card-${
-      counter + 1
-    } , .pokemon-card-defense-stats , p[0]`
+  const currentPreviewCardHP = document.querySelector(
+    `#HP-${counter + 1}`
   );
-
+  const currentPreviewCardAtk = document.querySelector(
+    `#Atk-${counter + 1}`
+  );
+  const currentPreviewCardSpd = document.querySelector(
+    `#Spd-${counter + 1}`
+  );
+  const currentPreviewCardSpAtk = document.querySelector(
+    `#SAtk-${counter + 1}`
+  );
+  const currentPreviewCardDef = document.querySelector(
+    `#Def-${counter + 1}`
+  );
+  const currentPreviewCardSpDef = document.querySelector(
+    `#SDef-${counter + 1}`
+  );
   if (counter === 6) {
     saveTeamButton.removeAttribute('disabled');
     return;
