@@ -68,15 +68,16 @@ saveTeamButton.addEventListener('click', () => {
 
 saveTrainerSubmit.addEventListener('submit', (e) => {
   e.preventDefault();
-  const trainerHeader = document.querySelector(
-    '#trainer-name-header'
-  );
-  const trainerNameText = document.querySelector(
-    '#submit-trainer-textbox'
-  );
-  let trainerName = trainerNameText.value;
-  trainerName =
-    trainerName.charAt(0).toUpperCase() + trainerName.slice(1);
-  trainerHeader.textContent = `${trainerName}'s Saved Teams`;
-  trainerNameText.value = '';
+  handleTrainerName();
+  //   const trainerHeader = document.querySelector(
+  //     '#trainer-name-header'
+  //   );
+  //   const trainerNameText = document.querySelector(
+  //     '#submit-trainer-textbox'
+  //   );
+  //   let trainerName = trainerNameText.value;
+  //   trainerName =
+  //     trainerName.charAt(0).toUpperCase() + trainerName.slice(1);
+  //   trainerHeader.textContent = `${trainerName}'s Saved Teams`;
+  //   trainerNameText.value = '';
 });
