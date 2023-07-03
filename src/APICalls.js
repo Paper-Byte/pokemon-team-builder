@@ -26,3 +26,19 @@ const testingStuff = async () => {
   const testing = await fetchPokemonSpecificData('dragonite');
   console.log(testing.stats);
 };
+
+const postTeamData = async (teamArray) => {
+  const response = await fetch('http://localhost:3000/pokemonteams', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(teamArray),
+  });
+};
+
+const getTeamData = async () => {
+  const response = await fetch('http://localhost:3000/pokemonteams');
+  const data = response.json();
+  return data;
+};

@@ -1,6 +1,17 @@
+const MAX_TEAM_SIZE = 6;
+
 const pokemonIDHelper = (url) => {
   const pokemonID = url.split('/');
   return pokemonID[6];
+};
+
+const titleCase = (str) => {
+  const strSplit = str.toLowerCase().split(' ');
+  const strCapitalized = strSplit.map(
+    (e) => e.charAt(0).toUpperCase() + e.slice(1)
+  );
+  const strTitle = strCapitalized.join(' ');
+  return strTitle;
 };
 
 const createPokemonSearchCards = (element) => {
@@ -10,18 +21,17 @@ const createPokemonSearchCards = (element) => {
   const newPokemonTextDiv = document.createElement('div');
   const newPokemonNameSpan = document.createElement('span');
   const newPokemonIDSpan = document.createElement('span');
-
+  const { url, name } = element;
   newPokemonMainDiv.className = 'pokemon-search';
   newPokemonTextDiv.className = 'list-text';
   newPokemonImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${pokemonIDHelper(
-    element.url
+    url
   )}.png`;
 
-  newPokemonNameSpan.textContent =
-    element.name.charAt(0).toUpperCase() + element.name.slice(1);
+  newPokemonNameSpan.textContent = titleCase(name);
   newPokemonNameSpan.style.width = '100%';
 
-  newPokemonIDSpan.textContent = `#${pokemonIDHelper(element.url)}`;
+  newPokemonIDSpan.textContent = `#${pokemonIDHelper(url)}`;
 
   newPokemonTextDiv.appendChild(newPokemonNameSpan);
   newPokemonTextDiv.appendChild(newPokemonIDSpan);
@@ -36,7 +46,7 @@ const editPokemonPreviewCards = async (
   pokemon
 ) => {
   const pokemonObj = await fetchPokemonSpecificData(pokemon);
-  if (teamArray.length < 6) {
+  if (teamArray.length < MAX_TEAM_SIZE) {
     teamArray.push(pokemonObj);
   }
   const currentPreviewCardImg = document.querySelector(
@@ -72,9 +82,7 @@ const editPokemonPreviewCards = async (
 
   currentPreviewCardImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonObj.id}.gif`;
   currentPreviewCardImg.alt = pokemonObj.name;
-  currentPreviewCardName.textContent =
-    pokemonObj.name.charAt(0).toUpperCase() +
-    pokemonObj.name.slice(1);
+  currentPreviewCardName.textContent = titleCase(pokemonObj.name);
   if (pokemonObj.types.length === 2) {
     currentPreviewCardTypeOne.src = `/src/img/icons/${pokemonObj.types[0].type.name}.svg`;
     currentPreviewCardTypeOne.alt = `${pokemonObj.types[0].type.name} icon`;
@@ -97,22 +105,24 @@ const editPokemonPreviewCards = async (
   currentPreviewCardSpd.textContent = `Spd: ${pokemonObj.stats[5].base_stat}`;
 };
 
-const createSavedTeam = async (teamName, teamArray) => {
+const createSavedTeam = async (teamObj) => {
   const savedTeamDiv = document.querySelector('#saved-pokemon-teams');
   const newPokemonDiv = document.createElement('div');
   newPokemonDiv.className = 'saved-team-card';
   const teamNameP = document.createElement('p');
   teamNameP.className = 'team-name';
-  teamNameP.textContent = teamName;
+  teamNameP.textContent = teamObj.name;
   newPokemonDiv.append(teamNameP);
+  const teamArray = teamObj.team;
   teamArray.forEach((e) => {
     const newPokemonImg = document.createElement('img');
-    newPokemonImg.alt = `${teamName}-${e.name}`;
+    newPokemonImg.alt = `${teamObj.name}-${e.name}`;
     newPokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${e.id}.png`;
     newPokemonImg.className = 'saved-team-pokemon';
     newPokemonDiv.appendChild(newPokemonImg);
   });
   savedTeamDiv.appendChild(newPokemonDiv);
+  console.log(teamObj);
 };
 
 const clearFormState = () => {
@@ -140,7 +150,7 @@ const clearFormState = () => {
   //   previewCardSpd.textContent = '';
   const pokemonCardList = document.querySelector('#search-box');
   pokemonCardList.innerHTML = `<input type="text" id="search-input-text" placeholder="Search..."/>`;
-  for (let counter = 0; counter < 6; counter++) {
+  for (let counter = 0; counter < MAX_TEAM_SIZE; counter++) {
     const currentPreviewCardImg = document.querySelector(
       `#card-img-${counter + 1}`
     );

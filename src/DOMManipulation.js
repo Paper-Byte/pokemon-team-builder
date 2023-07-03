@@ -2,7 +2,10 @@ const typeFilterDiv = document.querySelector('#search-filter');
 let cardCounter = 0;
 const searchSelection = document.querySelector('#search-box');
 const saveTeamButton = document.querySelector('#save-team-button');
-const currentTeamArray = [];
+let newTeamObj = {
+  name: '',
+  team: [],
+};
 const saveTrainerSubmit = document.querySelector(
   '#trainer-form form'
 );
@@ -46,7 +49,7 @@ searchSelection.addEventListener('click', (e) => {
     .split('#')[0]
     .toLowerCase();
   editPokemonPreviewCards(
-    currentTeamArray,
+    newTeamObj.team,
     cardCounter,
     chosenPokemonName
   );
@@ -61,23 +64,18 @@ saveTeamButton.addEventListener('click', () => {
   const saveTeamInput = document.querySelector(
     '#submit-team-textbox'
   );
-  createSavedTeam(saveTeamInput.value, currentTeamArray);
+  newTeamObj.name = titleCase(saveTeamInput.value);
+  createSavedTeam(newTeamObj);
+  //   postTeamData(currentTeamArray);
   clearFormState();
   renderInitialSearchPokemonCard();
+  cardCounter = 0;
+  saveTeamButton.disabled = 'true';
+  saveTeamInput.value = '';
+  newTeamObj.team = [];
 });
 
 saveTrainerSubmit.addEventListener('submit', (e) => {
   e.preventDefault();
   handleTrainerName();
-  //   const trainerHeader = document.querySelector(
-  //     '#trainer-name-header'
-  //   );
-  //   const trainerNameText = document.querySelector(
-  //     '#submit-trainer-textbox'
-  //   );
-  //   let trainerName = trainerNameText.value;
-  //   trainerName =
-  //     trainerName.charAt(0).toUpperCase() + trainerName.slice(1);
-  //   trainerHeader.textContent = `${trainerName}'s Saved Teams`;
-  //   trainerNameText.value = '';
 });
