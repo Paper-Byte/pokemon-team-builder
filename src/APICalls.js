@@ -21,3 +21,8 @@ const fetchPokemonSpecificData = async (pokemon) => {
   const { types, name, stats, id } = await response.json();
   return { types, name, stats, id };
 };
+
+const testingShit = async () => {
+  const testing = await fetchPokemonSpecificData('dragonite');
+  console.log(testing.stats);
+};

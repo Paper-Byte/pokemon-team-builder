@@ -1,5 +1,7 @@
 const typeFilterDiv = document.querySelector('#search-filter');
-const cardCounter = 0;
+let cardCounter = 0;
+const searchSelection = document.querySelector('#search-box');
+const saveTeamButton = document.querySelector('#save-team-button');
 
 const renderInitialSearchPokemonCard = async () => {
   const pokemonData = await fetchInitialPreviewPokemonData();
@@ -32,4 +34,17 @@ typeFilterDiv.addEventListener('click', (e) => {
   renderTypeSearchPokemonCard(
     activeTypeValue.textContent.toLowerCase()
   );
+});
+
+searchSelection.addEventListener('click', (e) => {
+  const chosenPokemon = e.target.closest('.pokemon-search');
+  const chosenPokemonName = chosenPokemon.textContent
+    .split('#')[0]
+    .toLowerCase();
+  editPokemonPreviewCards(cardCounter, chosenPokemonName);
+  cardCounter++;
+  if (cardCounter === 5) {
+    saveTeamButton.removeAttribute('disable');
+    return;
+  }
 });

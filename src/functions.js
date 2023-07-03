@@ -31,11 +31,14 @@ const createPokemonSearchCards = (element) => {
 };
 
 const editPokemonPreviewCards = async (counter, pokemon) => {
-  const pokemonObj = fetchPokemonSpecificData(pokemon);
   const saveTeamButton = document.querySelector('#save-team-button');
-  const currentPreviewCard = document.querySelector(
-    `#preview-card-${counter + 1}`
-  );
+  const pokemonObj = await fetchPokemonSpecificData(pokemon);
+
+  if (counter === 6) {
+    saveTeamButton.removeAttribute('disabled');
+    return;
+  }
+
   const currentPreviewCardImg = document.querySelector(
     `#card-img-${counter + 1}`
   );
@@ -66,9 +69,30 @@ const editPokemonPreviewCards = async (counter, pokemon) => {
   const currentPreviewCardSpDef = document.querySelector(
     `#SDef-${counter + 1}`
   );
-  if (counter === 6) {
-    saveTeamButton.removeAttribute('disabled');
-    return;
+
+  currentPreviewCardImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonObj.id}.gif`;
+  currentPreviewCardImg.alt = pokemonObj.name;
+  currentPreviewCardName.textContent =
+    pokemonObj.name.charAt(0).toUpperCase() +
+    pokemonObj.name.slice(1);
+  if (pokemonObj.types.length === 2) {
+    currentPreviewCardTypeOne.src = `/src/img/icons/${pokemonObj.types[0].type.name}.svg`;
+    currentPreviewCardTypeOne.alt = `${pokemonObj.types[0].type.name} icon`;
+    currentPreviewCardTypeOne.className = `${pokemonObj.types[0].type.name} icon`;
+    currentPreviewCardTypeTwo.src = `/src/img/icons/${pokemonObj.types[1].type.name}.svg`;
+    currentPreviewCardTypeTwo.alt = `${pokemonObj.types[1].type.name} icon`;
+    currentPreviewCardTypeTwo.className = `${pokemonObj.types[1].type.name} icon`;
   } else {
+    currentPreviewCardTypeOne.src = `/src/img/icons/${pokemonObj.types[0].type.name}.svg`;
+    currentPreviewCardTypeOne.alt = `${pokemonObj.types[0].type.name} icon`;
+    currentPreviewCardTypeOne.className = `${pokemonObj.types[0].type.name} icon`;
+    currentPreviewCardTypeTwo.style.visibility = 'hidden';
+    currentPreviewCardTypeTwo.alt = 'No second type';
   }
+  currentPreviewCardHP.textContent = `HP: ${pokemonObj.stats[0].base_stat}`;
+  currentPreviewCardAtk.textContent = `Atk: ${pokemonObj.stats[1].base_stat}`;
+  currentPreviewCardDef.textContent = `Def: ${pokemonObj.stats[2].base_stat}`;
+  currentPreviewCardSpAtk.textContent = `Sp. Atk: ${pokemonObj.stats[3].base_stat}`;
+  currentPreviewCardSpDef.textContent = `Sp. Def: ${pokemonObj.stats[4].base_stat}`;
+  currentPreviewCardSpd.textContent = `Spd: ${pokemonObj.stats[5].base_stat}`;
 };
