@@ -2,6 +2,7 @@ const typeFilterDiv = document.querySelector('#search-filter');
 let cardCounter = 0;
 const searchSelection = document.querySelector('#search-box');
 const saveTeamButton = document.querySelector('#save-team-button');
+const currentTeamArray = [];
 
 const renderInitialSearchPokemonCard = async () => {
   const pokemonData = await fetchInitialPreviewPokemonData();
@@ -13,7 +14,7 @@ const renderTypeSearchPokemonCard = async (type) => {
   const pokemonData = await fetchPokemonTypeData(type);
   const filteredPokemonData = pokemonData.filter((element) => {
     const elementPokemon = element.pokemon;
-    if (pokemonIDHelper(elementPokemon.url) <= 493) {
+    if (pokemonIDHelper(elementPokemon.url) <= 649) {
       return element;
     }
   });
@@ -41,10 +42,21 @@ searchSelection.addEventListener('click', (e) => {
   const chosenPokemonName = chosenPokemon.textContent
     .split('#')[0]
     .toLowerCase();
-  editPokemonPreviewCards(cardCounter, chosenPokemonName);
+  editPokemonPreviewCards(
+    currentTeamArray,
+    cardCounter,
+    chosenPokemonName
+  );
   cardCounter++;
-  if (cardCounter === 5) {
-    saveTeamButton.removeAttribute('disable');
+  if (cardCounter === 6) {
+    saveTeamButton.removeAttribute('disabled');
     return;
   }
+});
+
+saveTeamButton.addEventListener('click', () => {
+  const saveTeamInput = document.querySelector(
+    '#submit-team-textbox'
+  );
+  createSavedTeam(saveTeamInput.value, currentTeamArray);
 });
