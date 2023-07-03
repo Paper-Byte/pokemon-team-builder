@@ -445,22 +445,40 @@ body {
 }
 
 #submit-team-container {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 240px;
     font-size: larger;
     color: #fb8500;
 }
 
-#submit-team-container input{
+#submit-team-textbox{
     height: 30px;
     border-radius: 15px;
     width: 250px;
 }
 
-#submit-team-container button{
+#save-team-button{
     height: 30px;
     border-radius: 15px;
-    width: 70px;
+    width: 85px;
+    font-style: italic;
+}
+
+#submit-trainer-textbox{
+  height: 30px;
+  border-radius: 15px;
+  width: 150px;
+}
+
+#save-trainer-button{
+  height: 30px;
+  border-radius: 15px;
+  width: 85px;
+  font-style: italic;
+}
+
+#trainer-form{
+  margin-top: 8px;
 }
 
 #search-input-text::-webkit-input-placeholder{

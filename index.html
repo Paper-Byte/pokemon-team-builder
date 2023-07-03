@@ -325,14 +325,22 @@
           <div id="submit-team-container">
             <label>Team Name: 
               <input type='text' id="submit-team-textbox"/>
-              <button id="save-team-button" disabled >Save</button>
+              <button id="save-team-button" disabled>Save Team</button>
             </label>
+            <div id="trainer-form">
+             <form>
+               <label>Trainer Name:
+               <input type="text" id="submit-trainer-textbox"/>
+               <input type="submit" id="save-trainer-button" />
+               </label>
+             </form>
+           </div>
           </div>
         </div>
       </div>
       <div id="saved-pokemon-teams">
         <div id="saved-team-header">
-          <h1>Saved Teams</h1>
+          <h1 id="trainer-name-header">Trainer's Saved Teams</h1>
         </div>
       </div>
     </div>

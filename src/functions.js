@@ -138,6 +138,8 @@ const clearFormState = () => {
   //   previewCardSpDef.textContent = '';
   //   const previewCardSpd = document.querySelectorAll('.Spd-stat');
   //   previewCardSpd.textContent = '';
+  const pokemonCardList = document.querySelector('#search-box');
+  pokemonCardList.innerHTML = `<input type="text" id="search-input-text" placeholder="Search..."/>`;
   for (let counter = 0; counter < 6; counter++) {
     const currentPreviewCardImg = document.querySelector(
       `#card-img-${counter + 1}`

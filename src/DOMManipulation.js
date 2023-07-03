@@ -3,6 +3,9 @@ let cardCounter = 0;
 const searchSelection = document.querySelector('#search-box');
 const saveTeamButton = document.querySelector('#save-team-button');
 const currentTeamArray = [];
+const saveTrainerSubmit = document.querySelector(
+  '#trainer-form form'
+);
 
 const renderInitialSearchPokemonCard = async () => {
   const pokemonData = await fetchInitialPreviewPokemonData();
@@ -60,4 +63,20 @@ saveTeamButton.addEventListener('click', () => {
   );
   createSavedTeam(saveTeamInput.value, currentTeamArray);
   clearFormState();
+  renderInitialSearchPokemonCard();
+});
+
+saveTrainerSubmit.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const trainerHeader = document.querySelector(
+    '#trainer-name-header'
+  );
+  const trainerNameText = document.querySelector(
+    '#submit-trainer-textbox'
+  );
+  let trainerName = trainerNameText.value;
+  trainerName =
+    trainerName.charAt(0).toUpperCase() + trainerName.slice(1);
+  trainerHeader.textContent = `${trainerName}'s Saved Teams`;
+  trainerNameText.value = '';
 });
