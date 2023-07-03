@@ -29,3 +29,34 @@ const createPokemonSearchCards = (element) => {
   newPokemonMainDiv.appendChild(newPokemonTextDiv);
   searchContainer.appendChild(newPokemonMainDiv);
 };
+
+const editPokemonPreviewCards = async (counter, pokemon) => {
+  const pokemonObj = fetchPokemonSpecificData(pokemon);
+  const saveTeamButton = document.querySelector('#save-team-button');
+  const currentPreviewCard = document.querySelector(
+    `#preview-card-${counter + 1}`
+  );
+  const currentPreviewCardPokemonImg = document.querySelector(
+    `#preview-card-${counter + 1} , .pokemon-icon , img`
+  );
+  const currentPreviewCardPokemonName = document.querySelector(
+    `#preview-card-${counter + 1} , .pokemon-icon , p`
+  );
+  const currentPreviewCardType1 = document.querySelector(
+    `#preview-card-${counter + 1} , .pokemon-typing-icons , .icon[0]`
+  );
+  const currentPreviewCardType2 = document.querySelector(
+    `#preview-card-${counter + 1} , .pokemon-typing-icons , .icon[1]`
+  );
+  const currentPreviewCardHp = document.querySelector(
+    `#preview-card-${
+      counter + 1
+    } , .pokemon-card-defense-stats , p[0]`
+  );
+
+  if (counter === 6) {
+    saveTeamButton.removeAttribute('disabled');
+    return;
+  } else {
+  }
+};

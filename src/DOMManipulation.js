@@ -1,4 +1,5 @@
 const typeFilterDiv = document.querySelector('#search-filter');
+const cardCounter = 0;
 
 const renderInitialSearchPokemonCard = async () => {
   const pokemonData = await fetchInitialPreviewPokemonData();
