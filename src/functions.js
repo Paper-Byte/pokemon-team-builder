@@ -78,14 +78,14 @@ const editPokemonPreviewCards = async (
   if (pokemonObj.types.length === 2) {
     currentPreviewCardTypeOne.src = `/src/img/icons/${pokemonObj.types[0].type.name}.svg`;
     currentPreviewCardTypeOne.alt = `${pokemonObj.types[0].type.name} icon`;
-    currentPreviewCardTypeOne.className = `${pokemonObj.types[0].type.name} icon`;
+    currentPreviewCardTypeOne.className = `${pokemonObj.types[0].type.name} card-icon`;
     currentPreviewCardTypeTwo.src = `/src/img/icons/${pokemonObj.types[1].type.name}.svg`;
     currentPreviewCardTypeTwo.alt = `${pokemonObj.types[1].type.name} icon`;
-    currentPreviewCardTypeTwo.className = `${pokemonObj.types[1].type.name} icon`;
+    currentPreviewCardTypeTwo.className = `${pokemonObj.types[1].type.name} card-icon`;
   } else {
     currentPreviewCardTypeOne.src = `/src/img/icons/${pokemonObj.types[0].type.name}.svg`;
     currentPreviewCardTypeOne.alt = `${pokemonObj.types[0].type.name} icon`;
-    currentPreviewCardTypeOne.className = `${pokemonObj.types[0].type.name} icon`;
+    currentPreviewCardTypeOne.className = `${pokemonObj.types[0].type.name} card-icon`;
     currentPreviewCardTypeTwo.style.visibility = 'hidden';
     currentPreviewCardTypeTwo.alt = 'No second type';
   }
