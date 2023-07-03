@@ -114,3 +114,7 @@ const createSavedTeam = async (teamName, teamArray) => {
   });
   savedTeamDiv.appendChild(newPokemonDiv);
 };
+
+const clearFormState = () => {
+  const previeCardImg = document.querySelectorAll();
+};
