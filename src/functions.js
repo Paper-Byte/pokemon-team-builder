@@ -116,5 +116,75 @@ const createSavedTeam = async (teamName, teamArray) => {
 };
 
 const clearFormState = () => {
-  const previeCardImg = document.querySelectorAll();
+  //   const previewCardImg = document.querySelectorAll('.card-img');
+  //   previewCardImg.src = './src/img/placeholderimage.png';
+  //   previewCardImg.alt = 'placeholder';
+  //   const previewCardName = document.querySelectorAll('.card-p');
+  //   previewCardName.textContent = '';
+  //   const previewCardTypes = document.querySelectorAll('.card-icon');
+  //   previewCardTypes.src = './src/img/placeholderimage.png';
+  //   previewCardTypes.className = 'card-icon';
+  //   previewCardTypes.alt = 'placeholder';
+  //   previewCardTypes.style.visibility = 'visible';
+  //   const previewCardHP = document.querySelectorAll('.HP-stat');
+  //   previewCardHP.textContent = 'HP: ';
+  //   const previewCardAtk = document.querySelectorAll('.Atk-stat');
+  //   previewCardAtk.textContent = 'Atk: ';
+  //   const previewCardDef = document.querySelectorAll('.Def-stat');
+  //   previewCardDef.textContent = '';
+  //   const previewCardSpAtk = document.querySelectorAll('.SAtk-stat');
+  //   previewCardSpAtk.textContent = '';
+  //   const previewCardSpDef = document.querySelectorAll('.SDef-stat');
+  //   previewCardSpDef.textContent = '';
+  //   const previewCardSpd = document.querySelectorAll('.Spd-stat');
+  //   previewCardSpd.textContent = '';
+  for (let counter = 0; counter < 6; counter++) {
+    const currentPreviewCardImg = document.querySelector(
+      `#card-img-${counter + 1}`
+    );
+    const currentPreviewCardName = document.querySelector(
+      `#card-name-${counter + 1}`
+    );
+    const currentPreviewCardTypeOne = document.querySelector(
+      `#type-one-${counter + 1}`
+    );
+    const currentPreviewCardTypeTwo = document.querySelector(
+      `#type-two-${counter + 1}`
+    );
+    const currentPreviewCardHP = document.querySelector(
+      `#HP-${counter + 1}`
+    );
+    const currentPreviewCardAtk = document.querySelector(
+      `#Atk-${counter + 1}`
+    );
+    const currentPreviewCardSpd = document.querySelector(
+      `#Spd-${counter + 1}`
+    );
+    const currentPreviewCardSpAtk = document.querySelector(
+      `#SAtk-${counter + 1}`
+    );
+    const currentPreviewCardDef = document.querySelector(
+      `#Def-${counter + 1}`
+    );
+    const currentPreviewCardSpDef = document.querySelector(
+      `#SDef-${counter + 1}`
+    );
+
+    currentPreviewCardImg.src = './src/img/placeholderimage.png';
+    currentPreviewCardImg.alt = 'placeholder';
+    currentPreviewCardName.textContent = '';
+    currentPreviewCardTypeOne.src = './src/img/placeholderimage.png';
+    currentPreviewCardTypeOne.alt = 'placeholder';
+    currentPreviewCardTypeOne.className = 'card-icon';
+    currentPreviewCardTypeTwo.src = './src/img/placeholderimage.png';
+    currentPreviewCardTypeTwo.alt = 'placeholder';
+    currentPreviewCardTypeTwo.className = 'card-icon';
+    currentPreviewCardTypeTwo.style.visibility = 'visible';
+    currentPreviewCardHP.textContent = 'HP: ';
+    currentPreviewCardAtk.textContent = 'Atk: ';
+    currentPreviewCardDef.textContent = 'Def: ';
+    currentPreviewCardSpAtk.textContent = 'Sp. Atk: ';
+    currentPreviewCardSpDef.textContent = 'Sp. Def: ';
+    currentPreviewCardSpd.textContent = 'Spd: ';
+  }
 };

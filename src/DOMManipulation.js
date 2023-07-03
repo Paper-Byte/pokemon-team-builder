@@ -59,4 +59,5 @@ saveTeamButton.addEventListener('click', () => {
     '#submit-team-textbox'
   );
   createSavedTeam(saveTeamInput.value, currentTeamArray);
+  clearFormState();
 });
