@@ -22,11 +22,6 @@ const fetchPokemonSpecificData = async (pokemon) => {
   return { types, name, stats, id };
 };
 
-const testingStuff = async () => {
-  const testing = await fetchPokemonSpecificData('dragonite');
-  console.log(testing.stats);
-};
-
 const postTeamData = async (teamArray) => {
   const response = await fetch('http://localhost:3000/pokemonteams', {
     method: 'POST',

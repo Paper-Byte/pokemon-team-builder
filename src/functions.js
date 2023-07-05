@@ -50,34 +50,34 @@ const editPokemonPreviewCards = async (
     teamArray.push(pokemonObj);
   }
   const currentPreviewCardImg = document.querySelector(
-    `#card-img-${counter + 1}`
+    `#card-img-${counter}`
   );
   const currentPreviewCardName = document.querySelector(
-    `#card-name-${counter + 1}`
+    `#card-name-${counter}`
   );
   const currentPreviewCardTypeOne = document.querySelector(
-    `#type-one-${counter + 1}`
+    `#type-one-${counter}`
   );
   const currentPreviewCardTypeTwo = document.querySelector(
-    `#type-two-${counter + 1}`
+    `#type-two-${counter}`
   );
   const currentPreviewCardHP = document.querySelector(
-    `#HP-${counter + 1}`
+    `#HP-${counter}`
   );
   const currentPreviewCardAtk = document.querySelector(
-    `#Atk-${counter + 1}`
+    `#Atk-${counter}`
   );
   const currentPreviewCardSpd = document.querySelector(
-    `#Spd-${counter + 1}`
+    `#Spd-${counter}`
   );
   const currentPreviewCardSpAtk = document.querySelector(
-    `#SAtk-${counter + 1}`
+    `#SAtk-${counter}`
   );
   const currentPreviewCardDef = document.querySelector(
-    `#Def-${counter + 1}`
+    `#Def-${counter}`
   );
   const currentPreviewCardSpDef = document.querySelector(
-    `#SDef-${counter + 1}`
+    `#SDef-${counter}`
   );
 
   currentPreviewCardImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonObj.id}.gif`;
@@ -126,60 +126,38 @@ const createSavedTeam = async (teamObj) => {
 };
 
 const clearFormState = () => {
-  //   const previewCardImg = document.querySelectorAll('.card-img');
-  //   previewCardImg.src = './src/img/placeholderimage.png';
-  //   previewCardImg.alt = 'placeholder';
-  //   const previewCardName = document.querySelectorAll('.card-p');
-  //   previewCardName.textContent = '';
-  //   const previewCardTypes = document.querySelectorAll('.card-icon');
-  //   previewCardTypes.src = './src/img/placeholderimage.png';
-  //   previewCardTypes.className = 'card-icon';
-  //   previewCardTypes.alt = 'placeholder';
-  //   previewCardTypes.style.visibility = 'visible';
-  //   const previewCardHP = document.querySelectorAll('.HP-stat');
-  //   previewCardHP.textContent = 'HP: ';
-  //   const previewCardAtk = document.querySelectorAll('.Atk-stat');
-  //   previewCardAtk.textContent = 'Atk: ';
-  //   const previewCardDef = document.querySelectorAll('.Def-stat');
-  //   previewCardDef.textContent = '';
-  //   const previewCardSpAtk = document.querySelectorAll('.SAtk-stat');
-  //   previewCardSpAtk.textContent = '';
-  //   const previewCardSpDef = document.querySelectorAll('.SDef-stat');
-  //   previewCardSpDef.textContent = '';
-  //   const previewCardSpd = document.querySelectorAll('.Spd-stat');
-  //   previewCardSpd.textContent = '';
   const pokemonCardList = document.querySelector('#search-box');
   pokemonCardList.innerHTML = `<input type="text" id="search-input-text" placeholder="Search..."/>`;
   for (let counter = 0; counter < MAX_TEAM_SIZE; counter++) {
     const currentPreviewCardImg = document.querySelector(
-      `#card-img-${counter + 1}`
+      `#card-img-${counter}`
     );
     const currentPreviewCardName = document.querySelector(
-      `#card-name-${counter + 1}`
+      `#card-name-${counter}`
     );
     const currentPreviewCardTypeOne = document.querySelector(
-      `#type-one-${counter + 1}`
+      `#type-one-${counter}`
     );
     const currentPreviewCardTypeTwo = document.querySelector(
-      `#type-two-${counter + 1}`
+      `#type-two-${counter}`
     );
     const currentPreviewCardHP = document.querySelector(
-      `#HP-${counter + 1}`
+      `#HP-${counter}`
     );
     const currentPreviewCardAtk = document.querySelector(
-      `#Atk-${counter + 1}`
+      `#Atk-${counter}`
     );
     const currentPreviewCardSpd = document.querySelector(
-      `#Spd-${counter + 1}`
+      `#Spd-${counter}`
     );
     const currentPreviewCardSpAtk = document.querySelector(
-      `#SAtk-${counter + 1}`
+      `#SAtk-${counter}`
     );
     const currentPreviewCardDef = document.querySelector(
-      `#Def-${counter + 1}`
+      `#Def-${counter}`
     );
     const currentPreviewCardSpDef = document.querySelector(
-      `#SDef-${counter + 1}`
+      `#SDef-${counter}`
     );
 
     currentPreviewCardImg.src = './src/img/placeholderimage.png';
@@ -213,4 +191,20 @@ const handleTrainerName = () => {
     trainerName.charAt(0).toUpperCase() + trainerName.slice(1);
   trainerHeader.textContent = `${trainerName}'s Saved Teams`;
   trainerNameText.value = '';
+};
+
+const userSearchFilter = async (userInput, typeValue) => {
+  let searchDataFiltered = {};
+  if (typeValue !== '') {
+    searchDataFiltered = await fetchPokemonTypeData(typeValue);
+  } else {
+    searchDataFiltered = await fetchInitialPreviewPokemonData();
+  }
+  searchDataFiltered = searchDataFiltered.filter((e) => {
+    if (e.name.includes(userInput)) {
+      return e;
+    }
+  });
+  console.log(searchDataFiltered);
+  return searchDataFiltered;
 };

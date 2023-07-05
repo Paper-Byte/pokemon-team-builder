@@ -2,10 +2,13 @@ const typeFilterDiv = document.querySelector('#search-filter');
 let cardCounter = 0;
 const searchSelection = document.querySelector('#search-box');
 const saveTeamButton = document.querySelector('#save-team-button');
+const userSearch = document.querySelector('#search-input-text');
+let TYPE_SEARCH = '';
 let newTeamObj = {
   name: '',
   team: [],
 };
+
 const saveTrainerSubmit = document.querySelector(
   '#trainer-form form'
 );
@@ -38,9 +41,21 @@ document.addEventListener(
 typeFilterDiv.addEventListener('click', (e) => {
   const activeType = e.target.closest('.icon');
   const activeTypeValue = activeType.querySelector('p');
+  TYPE_SEARCH = activeTypeValue.textContent.toLowerCase();
   renderTypeSearchPokemonCard(
     activeTypeValue.textContent.toLowerCase()
   );
+  userSearch.removeEventListener();
+  userSearch.addEventListener('keydown', async () => {
+    let userSearchInput = saveTeamButton.value;
+    const filteredObj = await userSearchFilter(
+      userSearchInput,
+      TYPE_SEARCH
+    );
+    filteredObj.forEach((element) =>
+      createPokemonSearchCards(element)
+    );
+  });
 });
 
 searchSelection.addEventListener('click', (e) => {
