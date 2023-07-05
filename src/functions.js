@@ -105,29 +105,33 @@ const editPokemonPreviewCards = async (
   currentPreviewCardSpd.textContent = `Spd: ${pokemonObj.stats[5].base_stat}`;
 };
 
-const createSavedTeam = async (teamObj) => {
-  const savedTeamDiv = document.querySelector('#saved-pokemon-teams');
-  const newPokemonDiv = document.createElement('div');
-  newPokemonDiv.className = 'saved-team-card';
-  const teamNameP = document.createElement('p');
-  teamNameP.className = 'team-name';
-  teamNameP.textContent = teamObj.name;
-  newPokemonDiv.append(teamNameP);
-  const teamArray = teamObj.team;
-  teamArray.forEach((e) => {
-    const newPokemonImg = document.createElement('img');
-    newPokemonImg.alt = `${teamObj.name}-${e.name}`;
-    newPokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${e.id}.png`;
-    newPokemonImg.className = 'saved-team-pokemon';
-    newPokemonDiv.appendChild(newPokemonImg);
-  });
-  savedTeamDiv.appendChild(newPokemonDiv);
-  console.log(teamObj);
+const createSavedTeam = (teamsObj) => {
+  for (let i = 0; i < teamsObj.length; i++) {
+    console.log(teamsObj);
+    const savedTeamDiv = document.querySelector(
+      '#saved-pokemon-teams'
+    );
+    let newPokemonDiv = document.createElement('div');
+    newPokemonDiv.className = 'saved-team-card';
+    const teamNameP = document.createElement('p');
+    teamNameP.className = 'team-name';
+    teamNameP.textContent = teamsObj[i].name;
+    newPokemonDiv.append(teamNameP);
+    const teamArray = teamsObj[i].team;
+    teamArray.forEach((pokemon) => {
+      const newPokemonImg = document.createElement('img');
+      newPokemonImg.alt = `${teamsObj[i].name}-${pokemon.name}`;
+      newPokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${pokemon.id}.png`;
+      newPokemonImg.className = 'saved-team-pokemon';
+      newPokemonDiv.appendChild(newPokemonImg);
+    });
+    savedTeamDiv.appendChild(newPokemonDiv);
+  }
 };
 
 const clearFormState = () => {
   const pokemonCardList = document.querySelector('#search-box');
-  pokemonCardList.innerHTML = `<input type="text" id="search-input-text" placeholder="Search..."/>`;
+  pokemonCardList.innerHTML = ``;
   for (let counter = 0; counter < MAX_TEAM_SIZE; counter++) {
     const currentPreviewCardImg = document.querySelector(
       `#card-img-${counter}`
@@ -191,20 +195,4 @@ const handleTrainerName = () => {
     trainerName.charAt(0).toUpperCase() + trainerName.slice(1);
   trainerHeader.textContent = `${trainerName}'s Saved Teams`;
   trainerNameText.value = '';
-};
-
-const userSearchFilter = async (userInput, typeValue) => {
-  let searchDataFiltered = {};
-  if (typeValue !== '') {
-    searchDataFiltered = await fetchPokemonTypeData(typeValue);
-  } else {
-    searchDataFiltered = await fetchInitialPreviewPokemonData();
-  }
-  searchDataFiltered = searchDataFiltered.filter((e) => {
-    if (e.name.includes(userInput)) {
-      return e;
-    }
-  });
-  console.log(searchDataFiltered);
-  return searchDataFiltered;
 };

@@ -34,6 +34,6 @@ const postTeamData = async (teamArray) => {
 
 const getTeamData = async () => {
   const response = await fetch('http://localhost:3000/pokemonteams');
-  const data = response.json();
+  const data = await response.json();
   return data;
 };

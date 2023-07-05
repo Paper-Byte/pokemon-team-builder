@@ -3,7 +3,9 @@ let cardCounter = 0;
 const searchSelection = document.querySelector('#search-box');
 const saveTeamButton = document.querySelector('#save-team-button');
 const userSearch = document.querySelector('#search-input-text');
-let TYPE_SEARCH = '';
+const savedTeamsContainer = document.querySelector(
+  '#saved-pokemon-teams'
+);
 let newTeamObj = {
   name: '',
   team: [],
@@ -27,35 +29,25 @@ const renderTypeSearchPokemonCard = async (type) => {
       return element;
     }
   });
-  pokemonCardList.innerHTML = `<input type="text" id="search-input-text" placeholder="Search..."/>`;
+  pokemonCardList.innerHTML = ``;
   filteredPokemonData.forEach((element) =>
     createPokemonSearchCards(element.pokemon)
   );
 };
 
-document.addEventListener(
-  'DOMContentLoaded',
-  renderInitialSearchPokemonCard()
-);
+document.addEventListener('DOMContentLoaded', async () => {
+  const savedTeams = await getTeamData();
+  console.log(savedTeams.length);
+  renderInitialSearchPokemonCard();
+  createSavedTeam(savedTeams);
+});
 
 typeFilterDiv.addEventListener('click', (e) => {
   const activeType = e.target.closest('.icon');
   const activeTypeValue = activeType.querySelector('p');
-  TYPE_SEARCH = activeTypeValue.textContent.toLowerCase();
   renderTypeSearchPokemonCard(
     activeTypeValue.textContent.toLowerCase()
   );
-  userSearch.removeEventListener();
-  userSearch.addEventListener('keydown', async () => {
-    let userSearchInput = saveTeamButton.value;
-    const filteredObj = await userSearchFilter(
-      userSearchInput,
-      TYPE_SEARCH
-    );
-    filteredObj.forEach((element) =>
-      createPokemonSearchCards(element)
-    );
-  });
 });
 
 searchSelection.addEventListener('click', (e) => {
@@ -75,19 +67,24 @@ searchSelection.addEventListener('click', (e) => {
   }
 });
 
-saveTeamButton.addEventListener('click', () => {
+saveTeamButton.addEventListener('click', async () => {
+  let savedTeams = await getTeamData();
+  savedTeamsContainer.innerHTML = `<div id="saved-team-header">
+  <h1 id="trainer-name-header">Trainer's Saved Teams</h1>
+</div>`;
   const saveTeamInput = document.querySelector(
     '#submit-team-textbox'
   );
   newTeamObj.name = titleCase(saveTeamInput.value);
-  createSavedTeam(newTeamObj);
-  //   postTeamData(currentTeamArray);
+  postTeamData(newTeamObj);
+  savedTeams = await getTeamData();
   clearFormState();
   renderInitialSearchPokemonCard();
   cardCounter = 0;
   saveTeamButton.disabled = 'true';
   saveTeamInput.value = '';
   newTeamObj.team = [];
+  createSavedTeam(savedTeams);
 });
 
 saveTrainerSubmit.addEventListener('submit', (e) => {
